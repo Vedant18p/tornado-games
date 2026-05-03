@@ -1,0 +1,51 @@
+<app-page-wrapper>
+  <div page-header class="game-entry-header">
+    <h2>{{ gameConfig.title }}</h2>
+  </div>
+  <div page-content class="game-entry-content">
+    <div class="game-about-section">
+      <div class="game-thumbnail">
+        <div class="carousel">
+          
+          <button class="nav prev" (click)="prev()">‹</button>
+
+          <img
+            [src]="gameConfig.banners[currentIndex]"
+            alt="game image"
+          />
+
+          <button class="nav next" (click)="next()">›</button>
+
+        </div>
+
+        <!-- optional indicators -->
+        <div class="dots">
+          <span
+            *ngFor="let img of gameConfig.banners; let i = index"
+            [class.active]="i === currentIndex"
+            (click)="goTo(i)"
+          ></span>
+        </div>
+      </div>
+      <div class="game-details">
+        <div class="game-description">
+          <p>Overview: {{ gameConfig.overview }}</p>
+          <p>Description: {{ gameConfig.description }}</p>
+        </div>
+        <div class="game-play-actions">
+          <button class="action-button">Join Game</button>
+          <button class="action-button">Create Game</button>
+        </div>
+      </div>
+    </div>
+    <div class="game-rooms">
+      <h3>Active Game Rooms</h3>
+      <app-tornado-table
+        [columns]="roomTableColumns"
+        [data]="data"
+        [actions]="actions"
+        (rowAction)="handleRowAction($event)"
+      ></app-tornado-table>
+    </div>
+  </div>
+</app-page-wrapper>

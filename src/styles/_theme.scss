@@ -1,0 +1,49 @@
+/* Global theme tokens and utility color definitions */
+:root {
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-primary: #0f172a;
+  --color-primary-strong: #1d4ed8;
+  --color-secondary: #2563eb;
+  --color-muted: #64748b;
+  --color-text: #0f172a;
+  --color-text-strong: #0b1220;
+  --color-text-soft: #475569;
+  --color-link: #1d4ed8;
+  --color-link-hover: #1e40af;
+  --color-border: #e2e8f0;
+  --radius-default: 1rem;
+  --shadow-soft: 0 12px 28px rgba(15, 23, 42, 0.08);
+  --max-width: 1080px;
+  --bg-image: url('/assets/images/games/light_back.jpg');
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.6s ease-in-out, color 0.6s ease-in-out, border-color 0.6s ease-in-out;
+}
+
+html.dark {
+  --color-bg: #0f172a;
+  --color-surface: #111827;
+  --color-primary: #93c5fd;
+  --color-primary-strong: #60a5fa;
+  --color-secondary: #38bdf8;
+  --color-muted: #94a3b8;
+  --color-text: #f8fafc;
+  --color-text-strong: #ffffff;
+  --color-text-soft: #cbd5e1;
+  --color-link: #93c5fd;
+  --color-link-hover: #bfdbfe;
+  --color-border: #1f2937;
+  --bg-image: url('/assets/images/games/dark_back.jpg');
+}
+
+@mixin theme-surface() {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+@mixin theme-text() {
+  color: var(--color-text);
+}
