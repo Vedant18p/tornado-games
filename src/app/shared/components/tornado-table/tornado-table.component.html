@@ -1,0 +1,32 @@
+<table class="tornado-table">
+	<thead *ngIf="showHeader">
+		<tr>
+			<th *ngFor="let col of columns" [style.width]="col.width">{{ col.label }}</th>
+			<th *ngIf="actions && actions.length">Actions</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr *ngFor="let row of data; let i = index; trackBy: trackByIndex">
+			<td *ngFor="let col of columns">
+				<span class="cell-content">{{ row[col.key] }}</span>
+			</td>
+
+			<td *ngIf="actions && actions.length" class="actions-cell">
+				<button
+					*ngFor="let a of actions"
+					type="button"
+					class="action-btn"
+					[ngClass]="a.class"
+					(click)="emitAction(a.action, row, $event)">
+					<mat-icon *ngIf="a.icon" class="action-icon">{{ a.icon }}</mat-icon>
+					<span *ngIf="a.label">{{ a.label }}</span>
+				</button>
+			</td>
+		</tr>
+
+		<tr *ngIf="!data || data.length === 0">
+			<td [attr.colspan]="columns.length + (actions?.length ? 1 : 0)" class="no-data">No records</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,50 @@
+.tornado-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+.tornado-table thead th {
+	text-align: left;
+	font-weight: 600;
+	padding: 10px 12px;
+	color: var(--text-color, #222);
+}
+
+.tornado-table td {
+	padding: 10px 12px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	vertical-align: middle;
+}
+
+.actions-cell {
+	white-space: nowrap;
+	width: 1%;
+}
+
+.action-btn {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 6px 8px;
+	border-radius: 4px;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: inherit;
+}
+
+.action-btn:hover {
+	background: rgba(0, 0, 0, 0.04);
+}
+
+.action-icon {
+	font-size: 18px;
+	line-height: 18px;
+}
+
+.no-data {
+	text-align: center;
+	padding: 18px 12px;
+	color: var(--muted, #777);
+}

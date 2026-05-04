@@ -1,0 +1,33 @@
+<div class="game-card" (click)="openGame()">
+
+  <div class="game-image">
+    <img [src]="game.banners[0]" [alt]="game.title" />
+  </div>
+
+  <div class="game-info">
+    <h2 class="game-title">{{ game.title }}</h2>
+
+    <p class="game-description">
+      {{ game.description }}
+    </p>
+
+    <div class="game-meta">
+      <span class="players">
+        👥 {{ game.maxPlayers }} Players
+      </span>
+    </div>
+
+    @if (game.tags?.length) {
+      <div class="game-tags">
+        @for (tag of game.tags; track tag) {
+          <span class="game-tag">{{ tag }}</span>
+        }
+      </div>
+    }
+
+    <button class="play-btn" (click)="openGame(); $event.stopPropagation()">
+      Play
+    </button>
+  </div>
+
+</div>
